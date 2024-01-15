@@ -1,8 +1,14 @@
 from typing import Any, Dict, Optional
 
+import logging
+from typing import Any, Dict, Optional
+
+import logging
+
+from typing import Any, Dict, Optional
+
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import RedirectResponse
-
 from reworkd_platform.db.crud.oauth import OAuthCrud
 from reworkd_platform.db.crud.organization import OrganizationCrud, OrganizationUsers
 from reworkd_platform.schemas import UserBase
@@ -10,6 +16,7 @@ from reworkd_platform.services.oauth_installers import OAuthInstaller, installer
 from reworkd_platform.settings import settings
 from reworkd_platform.web.api.dependencies import get_current_user
 
+logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
@@ -17,9 +24,15 @@ router = APIRouter()
 async def organizations(
     name: str, crud: OrganizationCrud = Depends(OrganizationCrud.inject)
 ) -> OrganizationUsers:
-    if org := await crud.get_by_name(name):
-        return org
-    raise HTTPException(status_code=404)
+    try:
+        org = await crud.get_by_name(name)
+        if org:
+            return org
+        else:
+            raise HTTPException(status_code=404)
+    except Exception as e:
+        logger.error(f'Error in organizations: {e}')
+        raise HTTPException(status_code=500, detail='Internal Server Error')
 
 
 @router.get("/{provider}")
@@ -55,8 +68,12 @@ async def oauth_callback(
     if not code or not state:
         return RedirectResponse(url=settings.frontend_url)
 
-    creds = await installer.install_callback(code, state)
-    return RedirectResponse(url=creds.redirect_uri)
+    try:
+        creds = await installer.install_callback(code, state)
+        return RedirectResponse(url=creds.redirect_uri)
+    except Exception as e:
+        logger.error(f'Error in oauth_callback: {e}')
+        raise HTTPException(status_code=500, detail='Internal Server Error')
 
 
 @router.get("/sid/info")
