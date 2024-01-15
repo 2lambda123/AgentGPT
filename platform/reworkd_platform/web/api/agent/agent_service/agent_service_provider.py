@@ -8,11 +8,11 @@ from reworkd_platform.schemas.user import UserBase
 from reworkd_platform.services.tokenizer.dependencies import get_token_service
 from reworkd_platform.services.tokenizer.token_service import TokenService
 from reworkd_platform.settings import settings
-from reworkd_platform.web.api.agent.agent_service.agent_service import AgentService
+from .agent_service import AgentService
 from reworkd_platform.web.api.agent.agent_service.mock_agent_service import (
     MockAgentService,
 )
-from reworkd_platform.web.api.agent.agent_service.open_ai_agent_service import (
+from .open_ai_agent_service import (
     OpenAIAgentService,
 )
 from reworkd_platform.web.api.agent.model_factory import create_model
@@ -29,7 +29,7 @@ def get_agent_service(
         user: UserBase = Depends(get_current_user),
         token_service: TokenService = Depends(get_token_service),
         oauth_crud: OAuthCrud = Depends(OAuthCrud.inject),
-    ) -> AgentService:
+    ) -> Callable[..., AgentService]:
         if settings.ff_mock_mode_enabled:
             return MockAgentService()
 
@@ -41,7 +41,7 @@ def get_agent_service(
             force_model=llm_model,
         )
 
-        return OpenAIAgentService(
+        return OpenAIAgentService.create(
             model,
             run.model_settings,
             token_service,
