@@ -14,6 +14,14 @@ To make the application use the insecure, simple version of authentication, set 
 
 ## Accessing Provider Secret Keys
 
+## Common Authentication Issues
+
+If you encounter issues with authentication, you can check the following:
+
+- Ensure that you have the correct client ID and secret for each provider.
+- Verify that the redirect URIs are correctly configured with the provider.
+- Double-check the URLs in the OAuth consent screens and application settings.
+
 To enable different types of OAuth authentication, you will need to acquire secret keys from the respective providers. Below are the general instructions for getting these secret keys:
 
 <Tabs>
@@ -60,4 +68,12 @@ The `.env` file includes several placeholders for provider client IDs and secret
 - For GitHub, replace the "\*\*\*" placeholders for `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` with the client ID and secret obtained from GitHub.
 - For Discord, replace the "\*\*\*" placeholders for `DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET` with the client ID and secret obtained from Discord.
 
-Once these changes are made, your application will be set up to use OAuth authentication with these providers. To switch from local authentication to OAuth authentication, change the `NEXTAUTH_URL` variable in your `.env` file to the URL where your application is hosted. This cannot be localhost.
+After configuring the keys for the providers in the `.env` file, you can check the configuration of authentication providers as follows:
+
+## Checking Authentication Provider Configuration
+
+You can confirm the configuration of the authentication providers by logging in to each provider's developer portal and verifying the following:
+
+- Ensure that the redirect URIs are correctly configured with the provider.
+- Review the OAuth consent screens and application settings for accuracy.
+- Double-check the client ID and secret configuration with the provider.
