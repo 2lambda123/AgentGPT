@@ -1,5 +1,7 @@
 from langchain import PromptTemplate
 
+# Section A - Start of Prompt Templates
+
 # Create initial tasks using plan and solve prompting
 # https://github.com/AGI-Edgerunners/Plan-and-Solve-Prompting
 start_goal_prompt = PromptTemplate(
