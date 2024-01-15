@@ -5,7 +5,7 @@ from fastapi.responses import StreamingResponse as FastAPIStreamingResponse
 from reworkd_platform.web.api.agent.analysis import Analysis
 
 
-class AgentService(Protocol):
+class AgentService:
     async def start_goal_agent(self, *, goal: str) -> List[str]:
         pass
 
