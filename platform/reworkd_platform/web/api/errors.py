@@ -1,4 +1,5 @@
 class PlatformaticError(Exception):
+    pass
     """
     Parent exception class for all expected backend exceptions
     Will be caught and handled by the platform_exception_handler
