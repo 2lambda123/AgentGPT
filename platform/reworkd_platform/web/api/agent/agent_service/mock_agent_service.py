@@ -3,11 +3,11 @@ from typing import Any, List
 
 from fastapi.responses import StreamingResponse as FastAPIStreamingResponse
 
-from reworkd_platform.web.api.agent.agent_service.agent_service import (
+from reworkd_platform.services.agent.mock_agent_service import (
     AgentService,
     Analysis,
 )
-from reworkd_platform.web.api.agent.stream_mock import stream_string
+from reworkd_platform.services.agent.stream_mock import stream_string
 
 
 class MockAgentService(AgentService):
@@ -43,7 +43,7 @@ class MockAgentService(AgentService):
         )
 
     async def summarize_task_agent(
-        self,
+        self, 
         *,
         goal: str,
         results: List[str],
