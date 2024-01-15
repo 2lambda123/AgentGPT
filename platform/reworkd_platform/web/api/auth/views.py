@@ -6,8 +6,8 @@ from fastapi.responses import RedirectResponse
 from reworkd_platform.db.crud.oauth import OAuthCrud
 from reworkd_platform.db.crud.organization import OrganizationCrud, OrganizationUsers
 from reworkd_platform.schemas import UserBase
-from reworkd_platform.services.oauth_installers import OAuthInstaller, installer_factory
-from reworkd_platform.settings import settings
+from reworkd_platform.services.oauth.oauth_installers import OAuthInstaller, installer_factory
+from reworkd_platform.core.settings import settings
 from reworkd_platform.web.api.dependencies import get_current_user
 
 router = APIRouter()
