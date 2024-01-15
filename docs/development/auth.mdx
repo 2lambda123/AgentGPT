@@ -19,7 +19,7 @@ To make the application use the insecure, simple version of authentication, set 
 If you encounter issues with authentication, you can check the following:
 
 - Ensure that you have the correct client ID and secret for each provider.
-- Verify that the redirect URIs are correctly configured with the provider.
+- Ensure that the redirect URIs are correctly configured with the provider, and verify the client ID and secret for each provider.
 - Double-check the URLs in the OAuth consent screens and application settings.
 
 To enable different types of OAuth authentication, you will need to acquire secret keys from the respective providers. Below are the general instructions for getting these secret keys:
@@ -74,6 +74,6 @@ After configuring the keys for the providers in the `.env` file, you can check t
 
 You can confirm the configuration of the authentication providers by logging in to each provider's developer portal and verifying the following:
 
-- Ensure that the redirect URIs are correctly configured with the provider.
+- Ensure that the redirect URIs are correctly configured with the provider, and review the OAuth consent screens and application settings for accuracy.
 - Review the OAuth consent screens and application settings for accuracy.
 - Double-check the client ID and secret configuration with the provider.
