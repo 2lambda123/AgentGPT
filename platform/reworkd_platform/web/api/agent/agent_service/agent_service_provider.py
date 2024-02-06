@@ -7,11 +7,9 @@ from reworkd_platform.schemas.agent import AgentRun, LLM_Model
 from reworkd_platform.schemas.user import UserBase
 from reworkd_platform.services.tokenizer.dependencies import get_token_service
 from reworkd_platform.services.tokenizer.token_service import TokenService
-from reworkd_platform.settings import settings
+from reworkd_platform.core.settings import settings
 from .agent_service import AgentService
-from reworkd_platform.web.api.agent.agent_service.mock_agent_service import (
-    MockAgentService,
-)
+from reworkd_platform.services.agent.mock_agent_service import MockAgentService
 from .open_ai_agent_service import (
     OpenAIAgentService,
 )
@@ -48,6 +46,7 @@ def get_agent_service(
             callbacks=None,
             user=user,
             oauth_crud=oauth_crud,
+            settings=settings
         )
 
     return func

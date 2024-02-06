@@ -2,7 +2,7 @@ from fastapi import HTTPException, status
 
 
 def forbidden(detail: str = "Forbidden") -> HTTPException:
-    return HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=detail)
+    return HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=detail, detail=detail)
 
 
 def not_found(detail: str = "Not Found") -> HTTPException:

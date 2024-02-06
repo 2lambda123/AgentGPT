@@ -1,7 +1,7 @@
 from typing import List, Optional
 
 from fastapi.responses import StreamingResponse as FastAPIStreamingResponse
-from lanarky.responses import StreamingResponse
+from fastapi.responses import StreamingResponse
 from langchain import LLMChain
 from langchain.callbacks.base import AsyncCallbackHandler
 from langchain.output_parsers import PydanticOutputParser
@@ -29,8 +29,8 @@ from reworkd_platform.web.api.agent.prompts import (
     start_goal_prompt,
 )
 from reworkd_platform.web.api.agent.task_output_parser import TaskOutputParser
-from reworkd_platform.web.api.agent.tools.open_ai_function import get_tool_function
-from reworkd_platform.web.api.agent.tools.tools import (
+from reworkd_platform.services.agent.tools.open_ai_function import get_tool_function
+from reworkd_platform.services.agent.tools.tools import (
     get_default_tool,
     get_tool_from_name,
     get_tool_name,
@@ -44,7 +44,7 @@ class OpenAIAgentService(AgentService):
     def __init__(
         self,
         model: WrappedChatOpenAI,
-        settings: ModelSettings,
+        settings: ModelSettings, Field,
         token_service: TokenService,
         callbacks: Optional[List[AsyncCallbackHandler]],
         user: UserBase,
@@ -129,7 +129,7 @@ class OpenAIAgentService(AgentService):
         goal: str,
         task: str,
         analysis: Analysis,
-    ) -> StreamingResponse:
+    ) -> FastAPIStreamingResponse:
         # TODO: More mature way of calculating max_tokens
         if self.model.max_tokens > 3000:
             self.model.max_tokens = max(self.model.max_tokens - 1000, 3000)
