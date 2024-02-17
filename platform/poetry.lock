@@ -2483,22 +2483,23 @@ files = [
 
 [[package]]
 name = "replicate"
-version = "0.8.4"
+version = "0.23.1"
 description = "Python client for Replicate"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "replicate-0.8.4-py3-none-any.whl", hash = "sha256:b433dc8f336001903f4652d68d094a92d6fcf46ca8273cfb0c84e53edc15e33d"},
-    {file = "replicate-0.8.4.tar.gz", hash = "sha256:5620dab09d47749d6eaed2e3c980831fdceb7512ad52bd05111dfccc9f58697f"},
+    {file = "replicate-0.23.1-py3-none-any.whl", hash = "sha256:fef5faac3a5458796ad1905ddb39bc1bf314137ea03c58d3ec8bff437105a530"},
+    {file = "replicate-0.23.1.tar.gz", hash = "sha256:980cf50cb25804f27dd4177c193f3532fb7b00efe4f18380f97a953c6aaa46b2"},
 ]
 
 [package.dependencies]
+httpx = ">=0.21.0,<1"
 packaging = "*"
-pydantic = ">1,<2"
-requests = ">2"
+pydantic = ">1"
+typing-extensions = ">=4.5.0"
 
 [package.extras]
-dev = ["black", "mypy", "pytest", "responses", "ruff"]
+dev = ["pylint", "pyright", "pytest", "pytest-asyncio", "pytest-recording", "respx", "ruff (>=0.1.3)"]
 
 [[package]]
 name = "requests"
@@ -3443,4 +3444,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "295d6ec29a98c350fe18a983ce3c9919679def691f6f1d05f0e919e363fc1ed5"
+content-hash = "3aaf1046642d3aada2b714a4f7ad0534195f43e541fc288820db9003359352b9"
