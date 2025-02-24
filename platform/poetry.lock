@@ -265,17 +265,17 @@ pyflakes = ">=3.0.0"
 
 [[package]]
 name = "autopep8"
-version = "2.0.4"
+version = "2.3.2"
 description = "A tool that automatically formats Python code to conform to the PEP 8 style guide"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.9"
 files = [
-    {file = "autopep8-2.0.4-py2.py3-none-any.whl", hash = "sha256:067959ca4a07b24dbd5345efa8325f5f58da4298dab0dde0443d5ed765de80cb"},
-    {file = "autopep8-2.0.4.tar.gz", hash = "sha256:2913064abd97b3419d1cc83ea71f042cb821f87e45b9c88cad5ad3c4ea87fe0c"},
+    {file = "autopep8-2.3.2-py2.py3-none-any.whl", hash = "sha256:ce8ad498672c845a0c3de2629c15b635ec2b05ef8177a6e7c91c74f3e9b51128"},
+    {file = "autopep8-2.3.2.tar.gz", hash = "sha256:89440a4f969197b69a995e4ce0661b031f455a9f776d2c5ba3dbd83466931758"},
 ]
 
 [package.dependencies]
-pycodestyle = ">=2.10.0"
+pycodestyle = ">=2.12.0"
 
 [[package]]
 name = "aws-secretsmanager-caching"
@@ -3291,4 +3291,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "e5db76dbed25737d2263ec03f4dad4364e97e7af5d5ac58dd9a7bbe8082a7a90"
+content-hash = "210d242327595ed24afa9d6b3f8c06564377208bf51fef586de3563246828c0c"
