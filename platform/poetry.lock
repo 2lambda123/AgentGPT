@@ -3282,20 +3282,20 @@ files = [
 
 [[package]]
 name = "wemake-python-styleguide"
-version = "1.0.0"
+version = "1.1.0"
 description = "The strictest and most opinionated python linter ever"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["dev"]
 files = [
-    {file = "wemake_python_styleguide-1.0.0-py3-none-any.whl", hash = "sha256:c0cc3fe2a2aa8d7ca76f02bc27bfe344c76ed9652f94859c241b96f0fcefa9ac"},
-    {file = "wemake_python_styleguide-1.0.0.tar.gz", hash = "sha256:00e96dc73faf5471b21d4baa5041f457c19739cf14677832429be69e5f4f7964"},
+    {file = "wemake_python_styleguide-1.1.0-py3-none-any.whl", hash = "sha256:32644cf35f6cd4c49c2d36e7b10336f8fe105250ba79365e27c5fa648bfc0616"},
+    {file = "wemake_python_styleguide-1.1.0.tar.gz", hash = "sha256:a9086e4867560c06fe47deb2101c72d1a1fd7ecb7a3235b297b6e02e9298e71e"},
 ]
 
 [package.dependencies]
 attrs = "*"
 flake8 = ">=7.1,<8.0"
-pygments = ">=2.4,<3.0"
+pygments = ">=2.5,<3.0"
 
 [[package]]
 name = "wikipedia"
@@ -3428,4 +3428,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "9536164663806737ba1893e6cb3948cef01b37d7ef128457adaf4107d2687aad"
+content-hash = "b910f826ec97cfee234a5ea0373850120c662340a4f9c68bddf5b404c39885d9"
